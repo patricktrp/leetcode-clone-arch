@@ -1,0 +1,44 @@
+[
+    {
+        "id": "two-number-sum",
+        "difficulty": "easy",
+        "categories": [
+            "array"
+        ]
+    },
+    {
+        "id": "binary-search",
+        "difficulty": "easy",
+        "categories": [
+            "array"
+        ]
+    },
+    {
+        "id": "bubble-sort",
+        "difficulty": "easy",
+        "categories": [
+            "array"
+        ]
+    },
+    {
+        "id": "selection-sort",
+        "difficulty": "easy",
+        "categories": [
+            "array"
+        ]
+    },
+    {
+        "id": "insertion-sort",
+        "difficulty": "easy",
+        "categories": [
+            "array"
+        ]
+    },
+    {
+        "id": "depth-first-search",
+        "difficulty": "easy",
+        "categories": [
+            "array"
+        ]
+    }
+]

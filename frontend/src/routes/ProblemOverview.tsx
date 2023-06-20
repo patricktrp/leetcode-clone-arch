@@ -1,22 +1,12 @@
 import { Link } from 'react-router-dom'
-
-const MOCK_PROBLEMS = [
-    {
-        "id": "two-sum",
-        "difficulty": "easy",
-        "categories": ["array"]
-    },
-    {
-        "id": "binary-search",
-        "difficulty": "easy",
-        "categories": ["array"]
-    },
-]
+import mockData from '../assets/MOCK_DATA.json'
+import { useMemo } from 'react'
 
 const ProblemOverview = (): JSX.Element => {
+    const data = useMemo(() => mockData, [])
     return (
         <div>
-            {MOCK_PROBLEMS.map(problem => {
+            {data.map(problem => {
                 return <div><Link to={problem.id}>{problem.id}</Link></div>
             })}
         </div>
