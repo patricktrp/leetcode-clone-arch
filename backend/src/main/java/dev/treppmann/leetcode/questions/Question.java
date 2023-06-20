@@ -6,5 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public class Question {
     @Id
-    String id;
+    private String id;
+    private Difficulty difficulty;
+    private Category[] categories;
 }
