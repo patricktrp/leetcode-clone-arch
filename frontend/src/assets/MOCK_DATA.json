@@ -17,28 +17,31 @@
         "id": "bubble-sort",
         "difficulty": "easy",
         "categories": [
-            "array"
+            "array",
+            "sorting"
         ]
     },
     {
         "id": "selection-sort",
-        "difficulty": "easy",
+        "difficulty": "medium",
         "categories": [
-            "array"
+            "array",
+            "sorting"
         ]
     },
     {
         "id": "insertion-sort",
-        "difficulty": "easy",
+        "difficulty": "medium",
         "categories": [
-            "array"
+            "array",
+            "sorting"
         ]
     },
     {
         "id": "depth-first-search",
-        "difficulty": "easy",
+        "difficulty": "hard",
         "categories": [
-            "array"
+            "graphs"
         ]
     }
 ]
