@@ -8,7 +8,7 @@ const Navbar = (): JSX.Element => {
         <nav className={styles['navbar-layout']}>
             {!isAuthenticated && <button onClick={() => loginWithRedirect()}>Login</button>}
             {isAuthenticated && JSON.stringify(user)}
-            {isAuthenticated && <button onClick={() => logout()}>Logout</button>}
+            {isAuthenticated && <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>Logout</button>}
         </nav>
     )
 }
