@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom/client'
 import Root from './routes/Root'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import './index.css'
-import QuestionOverview from './routes/QuestionOverview'
+import ProblemOverview from './routes/ProblemOverview'
 import { Auth0Provider } from '@auth0/auth0-react'
 import MainPage from './routes/MainPage'
+import ProblemDetail from './routes/ProblemDetail'
 
 const router = createBrowserRouter([
   {
@@ -17,8 +18,12 @@ const router = createBrowserRouter([
         element: <MainPage />
       },
       {
-        path: "questions",
-        element: <QuestionOverview />
+        path: "problems",
+        element: <ProblemOverview />
+      },
+      {
+        path: "problems/:problemId",
+        element: <ProblemDetail />
       }
     ]
   }
@@ -30,7 +35,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       domain="leetcode-clone.eu.auth0.com"
       clientId="TfVhTSMnMyVY252wORSSe6C0l8AyBxf8"
       authorizationParams={{
-        redirect_uri: `${window.location.origin}/questions`
+        redirect_uri: `${window.location.origin}/problems`
       }}
     >
       <RouterProvider router={router} />
