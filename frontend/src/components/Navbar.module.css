@@ -13,8 +13,26 @@
     justify-content: space-between;
 }
 
+.navbar-icon:visited {
+    color: inherit;
+}
+
+.navigation-list {
+    list-style: none;
+}
+
+.navigation-list-link {
+    color: inherit;
+    text-decoration: none;
+    font-weight: 700;
+}
+
 .user-picture {
     width: 3.6vh;
     height: 3.6vh;
     border-radius: 50%;
+}
+
+.logout-button {
+    cursor: pointer;
 }
