@@ -30,7 +30,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       domain="leetcode-clone.eu.auth0.com"
       clientId="TfVhTSMnMyVY252wORSSe6C0l8AyBxf8"
       authorizationParams={{
-        redirect_uri: `${window.location.origin}/questions`
+        redirect_uri: import.meta.env.MODE === 'development' ? `${window.location.origin}/questions` : 'https://leetcode.treppmann.dev/questions'
       }}
     >
       <RouterProvider router={router} />

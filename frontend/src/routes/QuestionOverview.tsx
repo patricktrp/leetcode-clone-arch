@@ -1,6 +1,6 @@
 const QuestionOverview = (): JSX.Element => {
     return (
-        <h1>questions..</h1>
+        <h1>{import.meta.env.MODE}</h1>
     )
 }
 
