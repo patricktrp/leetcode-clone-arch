@@ -1,4 +1,4 @@
-package dev.treppmann.leetcode.questions;
+package dev.treppmann.leetcode.problems;
 
 public enum Difficulty {
     EASY, MEDIUM, HARD
