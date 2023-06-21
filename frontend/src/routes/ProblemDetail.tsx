@@ -2,12 +2,12 @@ import { useParams } from "react-router"
 import CodeMirror from '@uiw/react-codemirror'
 import { javascript } from "@codemirror/lang-javascript";
 import { okaidia } from "@uiw/codemirror-theme-okaidia";
-import { ResizableBox } from 'react-resizable'
 
 const ProblemDetail = (): JSX.Element => {
     const { problemId } = useParams();
 
-    const convertToCamelCase = (inputString: string) => {
+    const convertToCamelCase = (inputString: string | undefined) => {
+        if (inputString === undefined) return;
         const words = inputString.split('-');
         const capitalizedWords = words.map((word, index) => {
             if (index === 0) {
@@ -25,13 +25,11 @@ const ProblemDetail = (): JSX.Element => {
 
     return (
         <div>
-            <ResizableBox>
-                <CodeMirror
-                    value={code}
-                    theme={okaidia}
-                    extensions={[javascript()]}
-                />
-            </ResizableBox>
+            <CodeMirror
+                value={code}
+                theme={okaidia}
+                extensions={[javascript()]}
+            />
         </div >
     )
 }
