@@ -1,6 +1,11 @@
 [
     {
         "id": "two-number-sum",
+        "boilerplate_code": {
+            "javascript": "const twoNumberSum = () => {\n\treturn null;\n}",
+            "go": "",
+            "java": ""
+        },
         "difficulty": "easy",
         "categories": [
             "array"
@@ -8,6 +13,11 @@
     },
     {
         "id": "binary-search",
+        "boilerplate_code": {
+            "javascript": "",
+            "go": "",
+            "java": ""
+        },
         "difficulty": "easy",
         "categories": [
             "array"
@@ -15,6 +25,11 @@
     },
     {
         "id": "bubble-sort",
+        "boilerplate_code": {
+            "javascript": "",
+            "go": "",
+            "java": ""
+        },
         "difficulty": "easy",
         "categories": [
             "array",
@@ -23,6 +38,11 @@
     },
     {
         "id": "selection-sort",
+        "boilerplate_code": {
+            "javascript": "",
+            "go": "",
+            "java": ""
+        },
         "difficulty": "medium",
         "categories": [
             "array",
@@ -31,6 +51,11 @@
     },
     {
         "id": "insertion-sort",
+        "boilerplate_code": {
+            "javascript": "",
+            "go": "",
+            "java": ""
+        },
         "difficulty": "medium",
         "categories": [
             "array",
@@ -39,6 +64,11 @@
     },
     {
         "id": "depth-first-search",
+        "boilerplate_code": {
+            "javascript": "",
+            "go": "",
+            "java": ""
+        },
         "difficulty": "hard",
         "categories": [
             "graphs"

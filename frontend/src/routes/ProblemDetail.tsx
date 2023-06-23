@@ -1,32 +1,22 @@
-import { useParams } from "react-router"
 import CodeMirror from '@uiw/react-codemirror'
 import { javascript } from "@codemirror/lang-javascript";
 import { okaidia } from "@uiw/codemirror-theme-okaidia";
 
 const ProblemDetail = (): JSX.Element => {
-    const { problemId } = useParams();
-
-    const convertToCamelCase = (inputString: string | undefined) => {
-        if (inputString === undefined) return;
-        const words = inputString.split('-');
-        const capitalizedWords = words.map((word, index) => {
-            if (index === 0) {
-                return word;
-            } else {
-                return word.charAt(0).toUpperCase() + word.slice(1);
-            }
-        });
-        return capitalizedWords.join('');
+    const data = {
+        "id": "two-number-sum",
+        "boilerplate_code": {
+            "javascript": "const twoNumberSum = (array) => {\n\treturn array;\n}",
+        },
+        "difficulty": "easy",
+        "categories": [
+            "array"
+        ]
     }
-
-    const code = `const ${convertToCamelCase(problemId)} = () => { 
-    return 0;
-};`
-
     return (
         <div>
             <CodeMirror
-                value={code}
+                value={data.boilerplate_code.javascript}
                 theme={okaidia}
                 extensions={[javascript()]}
             />

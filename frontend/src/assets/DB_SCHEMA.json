@@ -1,0 +1,14 @@
+{
+    "id": "two-number-sum",
+    "difficulty": "easy",
+    "code": {
+        "javascript": "const twoNumberSum = (array) => {\n\treturn array;\n}"
+    },
+    "prompt": {
+        "description": [],
+        "sample_input": "",
+        "sample_output": "",
+        "complexity": "",
+        "hints": []
+    }
+}
