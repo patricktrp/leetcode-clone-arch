@@ -7,6 +7,17 @@ import ProblemOverview from './routes/ProblemOverview'
 import { Auth0Provider } from '@auth0/auth0-react'
 import MainPage from './routes/MainPage'
 import ProblemDetail from './routes/ProblemDetail'
+import { loader as problemsLoader } from './routes/ProblemOverview'
+import { loader as problemDetailLoader } from './routes/ProblemDetail'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 10,
+    },
+  },
+})
 
 const router = createBrowserRouter([
   {
@@ -19,11 +30,13 @@ const router = createBrowserRouter([
       },
       {
         path: "problems",
-        element: <ProblemOverview />
+        element: <ProblemOverview />,
+        loader: problemsLoader(queryClient)
       },
       {
         path: "problems/:problemId",
-        element: <ProblemDetail />
+        element: <ProblemDetail />,
+        loader: problemDetailLoader(queryClient)
       }
     ]
   }
@@ -38,7 +51,9 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         redirect_uri: `${window.location.origin}/problems`
       }}
     >
-      <RouterProvider router={router} />
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
     </Auth0Provider>
-  </React.StrictMode>,
+  </React.StrictMode >,
 )

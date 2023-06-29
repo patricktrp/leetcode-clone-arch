@@ -1,45 +1,44 @@
 import { Link } from 'react-router-dom'
-import mockData from '../assets/MOCK_DATA.json'
-import { useMemo } from 'react'
+import { QueryClient, useQuery } from '@tanstack/react-query'
 import { useReactTable, getCoreRowModel, flexRender, createColumnHelper } from '@tanstack/react-table';
+import { getProblems } from '../api/problems'
+import { mapProblemIdToHeading } from '../utils/string-utils';
 
 type Problem = {
     id: string,
-    difficulty: string,
-    categories: string[]
+    difficulty: string
 }
 
+const problemOverviewQuery = () => ({
+    queryKey: ['problems'],
+    queryFn: async () => {
+        const problems = await getProblems()
+        return problems
+    },
+})
+
+export const loader = (queryClient: QueryClient) =>
+    async () => {
+        const query = problemOverviewQuery()
+        return (
+            queryClient.getQueryData(query.queryKey) ??
+            (await queryClient.fetchQuery(query))
+        )
+    }
+
 const ProblemOverview = (): JSX.Element => {
-    const data = useMemo(() => mockData, [])
+    const { data } = useQuery(problemOverviewQuery())
+    console.log(data)
+
     const columnHelper = createColumnHelper<Problem>()
     const columns = [
         columnHelper.accessor('id', {
             header: 'Problem',
-            cell: x => <Link to={x.row.original.id}>{JSON.stringify(x.row.original.id)}</Link>
+            cell: x => <Link to={x.row.original.id}>{mapProblemIdToHeading(x.row.original.id)}</Link>
         }),
         columnHelper.accessor('difficulty', {
-            header: 'Difficulty'
-        }),
-        columnHelper.accessor('categories', {
-            header: 'Categories'
+            header: 'Difficulty',
         })
-        // columnHelper.accessor('age', {
-        //     header: () => 'Age',
-        //     cell: info => info.renderValue(),
-        //     footer: info => info.column.id,
-        // }),
-        // columnHelper.accessor('visits', {
-        //     header: () => <span>Visits</span>,
-        //     footer: info => info.column.id,
-        // }),
-        // columnHelper.accessor('status', {
-        //     header: 'Status',
-        //     footer: info => info.column.id,
-        // }),
-        // columnHelper.accessor('progress', {
-        //     header: 'Profile Progress',
-        //     footer: info => info.column.id,
-        // }),
     ]
 
     const table = useReactTable({

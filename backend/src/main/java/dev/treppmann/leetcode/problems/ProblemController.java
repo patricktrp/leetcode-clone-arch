@@ -1,10 +1,7 @@
 package dev.treppmann.leetcode.problems;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,7 +22,7 @@ public class ProblemController {
 
     @GetMapping("/{problemId}")
     public ResponseEntity<ProblemDTO> getProblemById(@PathVariable("problemId") String problemId) {
-        System.out.println(problemId);
-        return null;
+        ProblemDTO problemDTO = problemService.getProblemById(problemId);
+        return ResponseEntity.ok(problemDTO);
     }
 }

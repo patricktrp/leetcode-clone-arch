@@ -4,4 +4,5 @@ import java.util.List;
 
 public interface IProblemService {
     List<ProblemOverviewDTO> getProblems();
+    ProblemDTO getProblemById(String problemId);
 }
