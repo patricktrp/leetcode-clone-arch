@@ -3,7 +3,7 @@ import * as Dropdown from '@radix-ui/react-dropdown-menu'
 import { Link } from 'react-router-dom'
 import styles from './DropdownMenu.module.css'
 
-export type DropdownMenuProps = {
+export interface DropdownMenuProps {
     logout: (options?: LogoutOptions) => void,
     picture?: string
 }

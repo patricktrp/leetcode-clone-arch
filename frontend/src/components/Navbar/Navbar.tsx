@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import DropdownMenu from './DropdownMenu'
 import styles from './Navbar.module.css'
 
-export type NavbarProps = {
+export interface NavbarProps {
     isDarkMode: boolean,
     toggleDarkMode: () => void
 }

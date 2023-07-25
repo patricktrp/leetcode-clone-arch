@@ -1,6 +1,5 @@
 package dev.treppmann.leetcode.problems;
 
-import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,6 +30,6 @@ public class ProblemService implements IProblemService{
     }
 
     private ProblemDTO mapProblemToDTO(Problem problem) {
-        return new ProblemDTO(problem.getProblemId(), problem.getDifficulty());
+        return new ProblemDTO(problem.getProblemId(), problem.getDifficulty(), problem.getPrompt());
     }
 }

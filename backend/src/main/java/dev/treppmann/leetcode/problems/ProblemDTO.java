@@ -1,4 +1,6 @@
 package dev.treppmann.leetcode.problems;
 
-public record ProblemDTO(String id, Difficulty difficulty) {
+import java.util.Map;
+
+public record ProblemDTO(String id, Difficulty difficulty, Map<String, Object> prompt) {
 }

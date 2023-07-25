@@ -7,7 +7,14 @@ export type ProblemOverview = {
 
 export type Problem = {
     id: string,
-    difficulty: string
+    difficulty: string,
+    prompt: {
+        description: string[],
+        sampleInput: string[],
+        sampleOutput: string[],
+        hints: string[],
+        optimalSpaceTime: string
+    }
 }
 
 export const getProblems = async (): Promise<ProblemOverview[]> => {
@@ -15,7 +22,7 @@ export const getProblems = async (): Promise<ProblemOverview[]> => {
     return res.data;
 }
 
-export const getProblembyId = async (problemId: string) => {
+export const getProblembyId = async (problemId: string): Promise<Problem> => {
     const res = await axios.get(`${import.meta.env.VITE_API_URL}/problems/${problemId}`)
     return res.data
 }

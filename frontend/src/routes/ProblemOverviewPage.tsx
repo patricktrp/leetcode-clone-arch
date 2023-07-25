@@ -2,7 +2,7 @@ import { QueryClient, useQuery } from '@tanstack/react-query';
 import { createColumnHelper, flexRender, getCoreRowModel, useReactTable } from '@tanstack/react-table';
 import { Link } from 'react-router-dom';
 import { ProblemOverview, getProblems } from '../api/problems';
-import { mapProblemIdToHeading } from '../utils/string-utils';
+import { mapProblemIdToString } from '../utils/string-utils';
 
 const problemOverviewQuery = () => ({
     queryKey: ['problems'],
@@ -28,7 +28,7 @@ const ProblemOverviewPage = (): JSX.Element => {
     const columns = [
         columnHelper.accessor('id', {
             header: 'Problem',
-            cell: x => <Link to={x.row.original.id}>{mapProblemIdToHeading(x.row.original.id)}</Link>
+            cell: x => <Link to={x.row.original.id}>{mapProblemIdToString(x.row.original.id)}</Link>
         }),
         columnHelper.accessor('difficulty', {
             header: 'Difficulty',
