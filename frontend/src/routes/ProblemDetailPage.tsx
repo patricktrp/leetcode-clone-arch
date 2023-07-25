@@ -46,11 +46,12 @@ const ProblemDetail = (): JSX.Element => {
                     <h2 style={{ margin: '10px 10px 10px 0px' }}>{problemName}</h2>
                     <div title={difficulty} className={`${styles['difficulty']} ${styles[difficulty]} `}></div>
                 </div>
-                {problem?.prompt.description.map((paragraph: string) => <p>{paragraph}</p>)}
+                {problem?.prompt.description.map((paragraph: string) => <p style={{ maxWidth: '90%' }}>{paragraph}</p>)}
                 <h3>Sample Input</h3>
-                {problem?.prompt.sampleInput.map((input: string) => <p>{input}</p>)}
+                {problem?.prompt.sampleInput.map((input: string) => <code style={{ display: 'block' }}>{input}</code>)}
                 <h3>Sample Output</h3>
-                {problem?.prompt.sampleOutput.map((output: string) => <p>{output}</p>)}
+                {problem?.prompt.sampleOutput.map((output: string) => <code style={{ display: 'block' }}>{output}</code>)}
+                <br />
                 {problem?.prompt.hints.map((hint: string, idx: number) =>
                     <Collapsible trigger={`Hint ${idx + 1}`}>
                         <p>{hint}</p>
