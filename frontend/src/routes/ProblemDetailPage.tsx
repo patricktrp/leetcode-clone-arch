@@ -1,8 +1,8 @@
-import CodeMirror from '@uiw/react-codemirror'
 import { javascript } from "@codemirror/lang-javascript";
+import { QueryClient, useQuery } from '@tanstack/react-query';
 import { okaidia } from "@uiw/codemirror-theme-okaidia";
+import CodeMirror from '@uiw/react-codemirror';
 import { useParams } from 'react-router';
-import { useQuery } from '@tanstack/react-query'
 import { getProblembyId } from '../api/problems';
 
 const problemDetailQuery = (problemId: string) => ({
@@ -28,9 +28,8 @@ const ProblemDetail = (): JSX.Element => {
 
     return (
         <div>
-            <p>{JSON.stringify(data)}</p>
             <CodeMirror
-                value={"das"}
+                value={data.difficulty}
                 theme={okaidia}
                 extensions={[javascript()]}
             />

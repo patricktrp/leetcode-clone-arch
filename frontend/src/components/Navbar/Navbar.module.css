@@ -30,3 +30,14 @@
 .logout-button {
     cursor: pointer;
 }
+
+.menu-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+
+.menu-list li {
+    cursor: pointer;
+}

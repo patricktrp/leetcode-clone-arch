@@ -22,17 +22,17 @@ const Navbar: React.FC<NavbarProps> = ({ toggleDarkMode, isDarkMode }): JSX.Elem
                     <li><Link className={styles['navigation-list-link']} to="problems">Problems</Link></li>
                 </ul>
 
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    {isDarkMode ? <BsFillSunFill onClick={toggleDarkMode} size="1.4em" style={{ marginRight: '10px' }} /> : <BsFillMoonFill onClick={toggleDarkMode} size="1.4em" style={{ marginRight: '10px' }} />}
-                    {isAuthenticated ?
+                <ul className={styles['menu-list']}>
+                    <li>{isDarkMode ? <BsFillSunFill onClick={toggleDarkMode} size="1.4em" style={{ marginRight: '10px' }} /> : <BsFillMoonFill onClick={toggleDarkMode} size="1.4em" style={{ marginRight: '10px' }} />}</li>
+                    <li>{isAuthenticated ?
                         <DropdownMenu logout={logout} picture={user?.picture} /> :
                         <div>
                             <button onClick={() => loginWithRedirect()}>Login</button>
-                        </div>
-                    }
-                </div>
-            </div>
-        </nav>
+                        </div>}
+                    </li>
+                </ul>
+            </div >
+        </nav >
     )
 }
 
