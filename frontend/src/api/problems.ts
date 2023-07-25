@@ -1,11 +1,21 @@
-import axios from 'axios'
+import axios from 'axios';
 
-export const getProblems = async () => {
-    const res = await axios.get("http://localhost:8080/api/v1/problems")
+export type ProblemOverview = {
+    id: string,
+    difficulty: string
+}
+
+export type Problem = {
+    id: string,
+    difficulty: string
+}
+
+export const getProblems = async (): Promise<ProblemOverview[]> => {
+    const res = await axios.get(`${import.meta.env.VITE_API_URL}/problems`)
     return res.data;
 }
 
 export const getProblembyId = async (problemId: string) => {
-    const res = await axios.get(`http://localhost:8080/api/v1/problems/${problemId}`)
+    const res = await axios.get(`${import.meta.env.VITE_API_URL}/problems/${problemId}`)
     return res.data
 }

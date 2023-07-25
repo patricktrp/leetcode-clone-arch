@@ -1,6 +1,6 @@
-import { Outlet } from 'react-router-dom'
-import Navbar from '../components/Navbar'
-import { useState } from 'react'
+import { useState } from 'react';
+import { Outlet } from 'react-router-dom';
+import Navbar from '../components/Navbar/Navbar';
 
 const Root = (): JSX.Element => {
     const [isDarkMode, setIsDarkMode] = useState<boolean>(false);

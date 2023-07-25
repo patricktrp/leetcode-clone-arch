@@ -1,13 +1,8 @@
-import { Link } from 'react-router-dom'
-import { QueryClient, useQuery } from '@tanstack/react-query'
-import { useReactTable, getCoreRowModel, flexRender, createColumnHelper } from '@tanstack/react-table';
-import { getProblems } from '../api/problems'
+import { QueryClient, useQuery } from '@tanstack/react-query';
+import { createColumnHelper, flexRender, getCoreRowModel, useReactTable } from '@tanstack/react-table';
+import { Link } from 'react-router-dom';
+import { ProblemOverview, getProblems } from '../api/problems';
 import { mapProblemIdToHeading } from '../utils/string-utils';
-
-type Problem = {
-    id: string,
-    difficulty: string
-}
 
 const problemOverviewQuery = () => ({
     queryKey: ['problems'],
@@ -26,11 +21,10 @@ export const loader = (queryClient: QueryClient) =>
         )
     }
 
-const ProblemOverview = (): JSX.Element => {
+const ProblemOverviewPage = (): JSX.Element => {
     const { data } = useQuery(problemOverviewQuery())
-    console.log(data)
 
-    const columnHelper = createColumnHelper<Problem>()
+    const columnHelper = createColumnHelper<ProblemOverview>()
     const columns = [
         columnHelper.accessor('id', {
             header: 'Problem',
@@ -82,4 +76,4 @@ const ProblemOverview = (): JSX.Element => {
     )
 }
 
-export default ProblemOverview
+export default ProblemOverviewPage

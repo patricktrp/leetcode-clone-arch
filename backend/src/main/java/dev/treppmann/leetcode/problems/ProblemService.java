@@ -9,11 +9,9 @@ import java.util.stream.Collectors;
 @Service
 public class ProblemService implements IProblemService{
     private final ProblemRepository problemRepository;
-    private final MongoTemplate mongoTemplate;
 
-    public ProblemService(ProblemRepository problemRepository, MongoTemplate mongoTemplate) {
+    public ProblemService(ProblemRepository problemRepository) {
         this.problemRepository = problemRepository;
-        this.mongoTemplate = mongoTemplate;
     }
 
     @Override

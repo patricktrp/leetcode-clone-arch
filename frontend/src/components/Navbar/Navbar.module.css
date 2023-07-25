@@ -27,12 +27,6 @@
     font-weight: 700;
 }
 
-.user-picture {
-    width: 3.6vh;
-    height: 3.6vh;
-    border-radius: 50%;
-}
-
 .logout-button {
     cursor: pointer;
 }
