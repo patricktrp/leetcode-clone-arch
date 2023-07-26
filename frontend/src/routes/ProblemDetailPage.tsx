@@ -3,6 +3,7 @@ import { QueryClient, useQuery } from '@tanstack/react-query';
 import { okaidia } from "@uiw/codemirror-theme-okaidia";
 import CodeMirror from '@uiw/react-codemirror';
 import Collapsible from "react-collapsible";
+import { ResizableBox } from "react-resizable";
 import { useParams } from 'react-router';
 import { getProblembyId } from '../api/problems';
 import { mapProblemIdToString } from "../utils/string-utils";
@@ -41,7 +42,7 @@ const ProblemDetail = (): JSX.Element => {
 
     return (
         <div style={{ display: 'flex' }}>
-            <div style={{ flex: 1, padding: '15px' }}>
+            <ResizableBox className={styles['prompt-container']}>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                     <h2 style={{ margin: '10px 10px 10px 0px' }}>{problemName}</h2>
                     <div title={difficulty} className={`${styles['difficulty']} ${styles[difficulty]} `}></div>
@@ -60,15 +61,15 @@ const ProblemDetail = (): JSX.Element => {
                 <Collapsible trigger={"Optimal Time and Space Complexity"}>
                     <p>{problem?.prompt.optimalSpaceTime}</p>
                 </Collapsible>
-            </div>
+            </ResizableBox>
 
-            <div style={{ flex: 1 }}>
+            <ResizableBox className={styles['prompt-container']} style={{ flex: 1 }}>
                 <CodeMirror
                     value={problem?.difficulty}
                     theme={okaidia}
                     extensions={[javascript()]}
                 />
-            </div>
+            </ResizableBox>
         </div >
     )
 }
